@@ -1,0 +1,36 @@
+{
+	"appenders": {
+		"console": {
+			"type": "console"
+		},
+		"access": {
+			"type": "dateFile",
+			"filename": "log/access.log",
+			"pattern": "-yyyy-MM-dd"
+		},
+		"file": {
+			"type": "dateFile",
+			"filename": "log/sql-checker",
+			"encoding": "utf-8",
+			"maxLogSize": 10000000,
+			"numBackups": 3,
+			"pattern": "yyyy-MM-dd.log",
+			"alwaysIncludePattern": true
+		}
+	},
+	"categories": {
+		"default": {
+			"appenders": [
+				"console",
+				"file"
+			],
+			"level": "debug"
+		},
+		"http": {
+			"appenders": [
+				"access"
+			],
+			"level": "info"
+		}
+	}
+}
